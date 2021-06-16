@@ -30,6 +30,7 @@
 输入：nums = [3,3], target = 6
 输出：[0,1] */
 
+        let nums = [2,7,11,15], target = 9;
 /* 暴力解法，时间复杂度O(n^2) */
         function twoSumOne(nums, target) {
             for (let i = 0; i < nums.length; i++) {
@@ -57,6 +58,34 @@
             return [];
         }
         console.log(twoSumTwo([2,7,11,15], 9));
+
+    /* 第二遍 */    
+    function twoSumThree(nums, target) {
+        let a = [];
+        for (let i = 0; i < nums.length - 1; i++) {
+            for (let j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    a[0] = i;
+                    a[1] = j;
+                }
+            }
+        }
+        return a;
+    }
+    console.log(twoSumThree(nums, target));
+
+    function twoSumFour(nums, target) {
+        let map = new Map();
+        for (let i = 0; i < nums.length; i++) {
+            if (map.has(target - nums[i])) {
+                return [map.get(target - nums[i]), i];
+            } else {
+                map.set(nums[i], i);
+            }
+        }
+        return [];
+    }
+    console.log(twoSumFour(nums, target));
     </script>
 </body>
 

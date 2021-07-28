@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+给你一个字符串 s，找到 s 中最长的回文子串。
+
+示例 1：
+
+输入：s = "babad"
+输出："bab"
+解释："aba" 同样是符合题意的答案。
+示例 2：
+
+输入：s = "cbbd"
+输出："bb"
+示例 3：
+
+输入：s = "a"
+输出："a"
+示例 4：
+
+输入：s = "ac"
+输出："a"       
+        */
+       let s = "babad";
+        function getPlalindromic (s) {
+            let res = '';
+            for (let i = 0; i < s.length; i++) {
+                let left = i, right = s.length - 1;
+                while (left < right) {
+                    if (s[left] === s[right]) {
+                        
+                        left++;
+                        right--;
+                    }
+                    left++;
+                }
+            }
+        }
+        console.log(getPlalindromic(s));
+    </script>
+</body>
+</html>

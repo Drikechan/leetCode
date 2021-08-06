@@ -40,20 +40,19 @@ P     I
 输出："A"
   
          */
+
          let s = "PAYPALISHIRING", numRows = 3;
          function convertNum (s, numRows) {
-            if (s.length < 2) return s;
-            let rowsArr = [];
-            for (let i = 0; i < Math.min(numRows, s.length); i++)  rowsArr[i] = '';
+            if (s.length <= numRows || numRows === 1) return s;
+            let rowsArr = new Array(numRows).fill('');
             let doc = 0;
             let down = false;
             for (const c of s) {
-                if (doc === 0 || doc === numRows - 1) down = !down;
                 rowsArr[doc] += c;
+                if (doc === 0 || doc === numRows - 1) down = !down;
                 doc += down ? 1 : -1;
             }
-            console.log(rowsArr);
-            let ans = ''
+            let ans = '';
             for (const k of rowsArr) {
                 ans += k;
             }

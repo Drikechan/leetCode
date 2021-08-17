@@ -35,7 +35,7 @@
 输出：false
 解释：学生最后三天连续迟到，所以不满足出勤奖励的条件。  
     */
-   let s = "LPLPLPLPLPL";
+   let s = "LALL";
 
 
     function checkRecord(s) {
@@ -46,7 +46,8 @@
           if (countA > 1) {
             return false;
           }
-        } else if (s[i] === 'L') {
+        } 
+        if (s[i] === 'L') {
           countL++;
           if (countL >= 3) {
             return false;

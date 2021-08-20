@@ -32,60 +32,87 @@
 
         let nums = [2,7,11,15], target = 9;
 /* 暴力解法，时间复杂度O(n^2) */
-        function twoSumOne(nums, target) {
-            for (let i = 0; i < nums.length; i++) {
-                for (let j = i + 1; j < nums.length; j++) {
-                    if (nums[i] + nums[j] == target) {
-                        return [i, j]
-                    }
-                }
-            }
-            return [];
-        }
-        console.log(twoSumOne([2,7,11,15], 9));
+        // function twoSumOne(nums, target) {
+        //     for (let i = 0; i < nums.length; i++) {
+        //         for (let j = i + 1; j < nums.length; j++) {
+        //             if (nums[i] + nums[j] == target) {
+        //                 return [i, j]
+        //             }
+        //         }
+        //     }
+        //     return [];
+        // }
+        // console.log(twoSumOne([2,7,11,15], 9));
 
 /* 第二种是map, 时间复杂度O(n) */
-        function twoSumTwo(nums, target) {
-            let map = new Map();
-            for (let i = 0; i< nums.length; i++) {
-                /* 判断map表里面是否有target- nums[i]这一项，有的话返回结果，没有存入map里面 */
-                if (map.has(target - nums[i])) {
-                    return [map.get(target- nums[i]), i]
-                } else {
-                    map.set(nums[i], i)
-                }
-            }
-            return [];
-        }
-        console.log(twoSumTwo([2,7,11,15], 9));
+        // function twoSumTwo(nums, target) {
+        //     let map = new Map();
+        //     for (let i = 0; i< nums.length; i++) {
+        //         /* 判断map表里面是否有target- nums[i]这一项，有的话返回结果，没有存入map里面 */
+        //         if (map.has(target - nums[i])) {
+        //             return [map.get(target- nums[i]), i]
+        //         } else {
+        //             map.set(nums[i], i)
+        //         }
+        //     }
+        //     return [];
+        // }
+        // console.log(twoSumTwo([2,7,11,15], 9));
 
     /* 第二遍 */    
-    function twoSumThree(nums, target) {
-        let a = [];
-        for (let i = 0; i < nums.length - 1; i++) {
-            for (let j = i + 1; j < nums.length; j++) {
-                if (nums[i] + nums[j] == target) {
-                    a[0] = i;
-                    a[1] = j;
-                }
-            }
-        }
-        return a;
-    }
-    console.log(twoSumThree(nums, target));
+    // function twoSumThree(nums, target) {
+    //     let a = [];
+    //     for (let i = 0; i < nums.length - 1; i++) {
+    //         for (let j = i + 1; j < nums.length; j++) {
+    //             if (nums[i] + nums[j] == target) {
+    //                 a[0] = i;
+    //                 a[1] = j;
+    //             }
+    //         }
+    //     }
+    //     return a;
+    // }
+    // console.log(twoSumThree(nums, target));
 
-    function twoSumFour(nums, target) {
-        let map = new Map();
-        for (let i = 0; i < nums.length; i++) {
-            if (map.has(target - nums[i])) {
-                return [map.get(target - nums[i]), i];
-            } else {
-                map.set(nums[i], i);
-            }
-        }
-        return [];
-    }
-    console.log(twoSumFour(nums, target));
+    // function twoSumFour(nums, target) {
+    //     let map = new Map();
+    //     for (let i = 0; i < nums.length; i++) {
+    //         if (map.has(target - nums[i])) {
+    //             return [map.get(target - nums[i]), i];
+    //         } else {
+    //             map.set(nums[i], i);
+    //         }
+    //     }
+    //     return [];
+    // }
+    // console.log(twoSumFour(nums, target));
+
+    /* 第五遍 */
+    // function twoSum_five_one (nums, target) {
+    //     let map = new Map();
+    //     for (let i = 0; i < nums.length; i++) {
+    //         if (map.has(target - nums[i])) {
+    //             return [map.get(target - nums[i]), i]
+    //         } else {
+    //             map.set(nums[i], i)
+    //         }
+    //     }
+    //     return [];
+    // }
+    // console.log(twoSum_five_one(nums, target));
+
+    // function twoSum_five_two (nums, target) {
+    //     for (let i = 0; i < nums.length - 1; i++) {
+    //         for (let j = i + 1; j < nums.length; j++) {
+    //             if (nums[i] + nums[j] === target) {
+    //                 return [i, j]
+    //             }
+    //         }
+    //     }
+    //     return [];
+    // }
+    // console.log(twoSum_five_two (nums, target));
+
     </script>
 </body>
 

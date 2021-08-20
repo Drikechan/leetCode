@@ -91,73 +91,30 @@
 解析得到整数 -91283472332 。
 由于 -91283472332 小于范围 [-231, 231 - 1] 的下界，最终结果被截断为 -231 = -2147483648 。 
      */
-    //   let s = "    -88827   5655  U";
-    //  function myAtoi (s) {
-    //   let res = s.trim(), ans = '', one = '';
-    //   for (let i = 0; i < res.length; i++) {
-    //     debugger;
-    //     if (res[0] === '+' || res[0] === '-' || Number.isFinite(Number(res[0]))) {
-    //       one = res[0];
-    //     } else {
-    //       return 0;
-    //     }
-    //     if (Number.isFinite(Number(res[i+1]))) {
-    //       ans += res[i+1];
-    //       if (Number(one + ans) > (Math.pow(2, 31) - 1)) return Math.pow(2, 31) - 1;
-    //       if (Number(one + ans) < -Math.pow(2, 31))  return Math.pow(-2, 31);
-    //     } else {
-    //       return Number(one + ans) ? Number(one + ans) : 0;
-    //     }
-    //   }
-    //   return Number(one + ans) ? Number(one + ans) : 0;
-    //  }
-    //  console.log(myAtoi(s));
-    //  $.get('/get/user/info',function(res){
-    //         $.get('/get/city='+result.user.city, function(city) {
-    //             console.log(city);
-    //         })
-    //     })
-
-//         let $ = {
-//           get (url) {
-//             return new Promise((res, rej) => {
-//                 let xhr = new XMLHttpRequest();
-//                 xhr.open('GET', url);
-//                 xhr.send();
-//                 xhr.onload = function () {
-//                   resolve(xhr.response)
-//                 }
-                
-//             })
-//           }
-//         }
-// $.get('http://localhost:8888').then(res => {console.log(res);}).then(res => {
-//   $.get('2222')
-// })
-        // .then(res => {
-        //   $.get(`/get/city=${result.user.city}`)
-        // })
-
-        // let $ = {
-        //   get: function (url) {
-        //     new Promise()
-        //   }
-        // }
-
-        function A () {
-          let count = 0;
-          localStorage.setItem(count, Number(localStorage.getItem(count)) +1);
-          // if (count % 2 !== 0) {
-          //   return 1;
-          // } else {
-          //   return 2;
-          // } 
-          return localStorage.getItem(count)
+      let s = "    -88827   5655  U";
+     function myAtoi (s) {
+      let res = s.trimStart(), ans = '', one = '';
+      for (let i = 0; i < res.length; i++) {
+        if (res[0] === '+' || res[0] === '-' || Number.isFinite(Number(res[0]))) {
+          one = res[0];
+        } else {
+          return 0;
         }
-        console.log(A());
-        console.log(A());
-        console.log(A());
-        console.log(A());
+        if (Number.isFinite(parseInt(res[i+1]))) {
+          ans += res[i+1];
+          if (Number(one + ans) > (Math.pow(2, 31) - 1)) return Math.pow(2, 31) - 1;
+          if (Number(one + ans) < -Math.pow(2, 31))  return Math.pow(-2, 31);
+        } else {
+          return Number(one + ans) ? Number(one + ans) : 0;
+        }
+      }
+      return Number(one + ans) ? Number(one + ans) : 0;
+     }
+     console.log(myAtoi(s));
+
+
+
+
   </script>
 </body>
 </html>

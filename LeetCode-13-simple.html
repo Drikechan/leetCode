@@ -52,14 +52,23 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
     */
    let s = "MCMXCIV";
    function intToNumber (s) {
-    let valueMap = [[1000, 'M'], [900, 'CM'], [500, 'D'], [400, 'CD'], [100, 'C'], [90, 'XC'], [50, 'L'], [40, 'XL'],  [10, 'X'], [9, 'IX'], [5, 'V'], [4, 'IV'], [1, 'I']], res = [], num = 0;
-    for (const [value, name] of valueMap) {
-      while (res != s) {
-        res += name;
-        num += value
+    let map = new Map();
+    map.set('I', 1);
+    map.set('V', 5);
+    map.set('X', 10);
+    map.set('L', 50);
+    map.set('C', 100);
+    map.set('D', 500);
+    map.set('M', 1000);
+    let res = 0;
+    for (let i = 0; i < s.length; ++i) {
+      if (i < s.length - 1 && map.get(s[i]) < map.get(s[i + 1])) {
+        res -= map.get(s[i]);
+      } else {
+        res += map.get(s[i]);
       }
     }
-    return num;
+    return res;
    }
    console.log(intToNumber(s));
   </script>

@@ -27,9 +27,15 @@
     */
     let strs = ["flower","flow","flight"];
     function longestCommonPrefix (strs) {
-       
+       let left = 0, map = new Map(), res = '';
       for (let i = 0; i < strs.length; i++) {
-        
+        while (map.size < strs[0].length)  {
+          map.set(left, strs[0][left]);
+          left++;
+        }
+      }
+      for (let j = 1; j < strs[i].length; j++) {
+        console.log();
       }
     }
     console.log(longestCommonPrefix(strs));
